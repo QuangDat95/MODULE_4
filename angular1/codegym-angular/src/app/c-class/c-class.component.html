@@ -1,0 +1,17 @@
+<!-- Binding to an attribute -->
+<p [attr.attribute-you-are-targeting]="actionName"></p>
+<!-- Binding ARIA attributes -->
+<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+<!-- Binding to colspan -->
+<tr><td [attr.colspan]="1+1">One-Two</td></tr>
+<!-- Binding to the class attribute -->
+<!-- Single class -->
+<div [class.sale] ="onSale">
+    {{onSale}}
+</div>
+<!-- Multi-class -->
+<div [class]="classExpression"></div>
+<hr>
+<!-- Binding to the style attribute -->
+<nav [style.background-color]="expression"></nav>
+<nav [style.backgroundColor]="expression"></nav>

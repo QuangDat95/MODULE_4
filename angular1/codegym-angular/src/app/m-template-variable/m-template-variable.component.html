@@ -1,0 +1,8 @@
+<!-- cách 1: dùng #ten_bien -->
+<input #phone placeholder="phone number"/>
+<!-- cách 2: dùng ref-fax tương tự fax -->
+<input ref-fax placeholder="phone number"/>
+<!-- lots of other elements -->
+<!-- #phone tham chiếu tới input phía trên -->
+<button (click)="callPhone(phone.value)">Call phone</button>
+<button (click)="callPhone(fax.value)">Call Fax</button>

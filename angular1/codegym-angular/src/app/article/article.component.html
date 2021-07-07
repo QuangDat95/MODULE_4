@@ -1,0 +1,126 @@
+<!-- {{ article | json }} -->
+
+Tiêu đề: {{ article.title }}
+<br>
+Nội dung: {{ article.description }}
+
+
+{{ articles | json }}
+
+
+<!-- Vòng lặp ngFOr -->
+
+<hr>
+
+<ul *ngIf="articles; else noItems">
+    <li *ngFor="let item of articles; let i = index; let e = even" 
+        [style.background-color]=" (e == true) ? 'red' : 'yellow' ">
+        Thứ tự chẵn : {{ e }}
+        <br>
+        Thứ tự: {{ i }}
+        <br>
+        Tiêu đề: {{ item.title }}
+        <br>
+        Nội dung: {{ item.description }}
+    </li>
+</ul>
+
+<ng-template #noItems>
+    Không có bài viết nào
+</ng-template>
+
+<hr>
+
+<input type="text" [(ngModel)]="age">
+
+<div *ngIf="age > 18; else elseNotEnough">
+    Lớn hơn 18 tuổi
+</div>
+<!-- 
+    *ngIf="điều kiện; then template_nếu đúng else template_nếu_sai"
+ -->
+
+ <!-- Template nếu đúng -->
+<!-- <ng-container *ngIf="age > 18; else elseNotEnough">
+    <h3>Tuổi trưởng thành</h3>
+</ng-container> -->
+
+ <!-- Template nếu sai -->
+<ng-template #elseNotEnough>
+    <h3>Chưa đủ tuổi trưởng thành</h3>
+</ng-template>
+
+<hr>
+
+<!--    
+    Nếu order_status == paid : Đã thanh toán
+    Nếu order_status == pending : Chưa thanh toán
+    Nếu order_status == canceled : Đơn hàng đã hủy
+ -->
+
+
+<!-- Cách viết với if -->
+<span class="text-success"  *ngIf="order_status == 'paid'">Đã thanh toán</span>
+<span class="text-primary"  *ngIf="order_status == 'pending'">Chưa thanh toán</span>
+<span class="text-danger"   *ngIf="order_status == 'canceled'">Đơn hàng đã hủy</span>
+
+<!-- Cách viết với ngSwitch -->
+<ng-container [ngSwitch]="order_status">
+    <span class="text-success"  *ngSwitchCase="'paid'">Đã thanh toán</span>
+    <span class="text-primary"  *ngSwitchCase="'pending'">Chưa thanh toán</span>
+    <span class="text-danger"   *ngSwitchCase="'canceled'">Đơn hàng đã hủy</span>
+</ng-container>
+
+
+<!-- NGCLass -->
+
+
+
+<h3
+    [ngClass]="class_arr"
+>
+    attribute works!
+</h3>
+
+<h3
+    [ngClass]="['pd-10', 'cl-yellow', 'border-blue']"
+>
+    attribute works 2!
+</h3>
+
+<h3
+    [ngClass]="{
+        'text-black' : isBlack,
+        'text-danger' : !isBlack
+    }"
+>
+    attribute works 3!
+</h3>
+
+<h3
+    [ngClass]="setClasses()"
+>
+    attribute works 4!
+</h3>
+
+<h3 [class.text-danger]="!isBlack">
+    attribute works 5!
+</h3>
+
+<h3 [class.text-primary]="isBlack">
+    attribute works 6!
+</h3>
+
+<h3
+    [ngStyle]="setStyles()"
+>
+    attribute works 7!
+</h3>
+
+<h3
+    [ngStyle]="{
+        'background-color' : 'red'
+    }"
+>
+    attribute works 8!
+</h3>
