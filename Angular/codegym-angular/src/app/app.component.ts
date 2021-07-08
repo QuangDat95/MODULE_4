@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'codegym-angular';
+  title:string = 'Hello Angular 123';
+  age:number = 30;
+
+  //đặt tên cho dễ nhớ
+  appComponentAnswer(event:any):void{
+    console.log('AppComponent::appComponentAnswer: ' + event);
+  }
 }

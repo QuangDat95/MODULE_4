@@ -13,8 +13,6 @@ import { CustomPipe } from './custom.pipe';
 import { FPipesComponent } from './f-pipes/f-pipes.component';
 import { MTemplateVariableComponent } from './m-template-variable/m-template-variable.component';
 import { FontSizeEditorComponent } from './font-size-editor/font-size-editor.component';
-import { PetComponent } from './pet/pet.component';
-import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +26,6 @@ import { ArticleComponent } from './article/article.component';
     FPipesComponent,
     MTemplateVariableComponent,
     FontSizeEditorComponent,
-    PetComponent,
-    ArticleComponent
   ],
   imports: [
     BrowserModule,
