@@ -16,12 +16,15 @@ export class ProgressBarComponent implements OnInit {
   }
 
   loading(){
-    let interval = setInterval(() => {
-      this.progress += 0.1;
-      if(this.progress == 100){
-      clearInterval(interval);
-      }
-    },1);
-    
+      let interval = setInterval(() => {
+        if(this.progress == 0){
+          this.progress = +this.progress + 0.1;
+        }
+        if(this.progress >= 100){
+        let subinterval = setInterval(() => {
+          this.progress = +this.progress - 0.1;
+        });
+        }
+      },0.1); 
   }
 }

@@ -1,0 +1,34 @@
+<form [formGroup]="formProfile" (ngSubmit)="onSubmitForm()" class="form-horizontal" novalidate autocomplete="off">
+<div class="form-group">
+  <label>Email Address</label>
+  <input formControlName="email" type="email" class="form-control" name="email">
+  <small class="label label-danger" *ngIf="formProfile.controls.email.touched && formProfile.controls.email.errors?.required">
+    Email required
+  </small>
+</div>
+<div class="form-group">
+  <label>UserName</label>
+  <input formControlName="username" type="text" class="form-control" name="username">
+    <small class="label label-danger"
+    *ngIf="formProfile.controls.username.touched && formProfile.controls.username.errors?.required">
+      UserName required
+    </small>
+    <small class="label label-danger"
+    *ngIf="formProfile.controls.username.touched && formProfile.controls.username.errors?.minlength">
+      UserName minLength
+    </small>
+</div>
+
+<div formGroupName="phone">
+    <div class="form-group">
+      <label>Phone</label>
+      <input formControlName="phone" type="text" class="form-control" name="phone">
+    </div>
+    <div class="form-group">
+      <label>Mobile</label>
+      <input formControlName="mobile" type="text" class="form-control" name="mobile">
+    </div>
+</div>
+<button [disabled]="!formProfile.valid" type="submit" class="btn btn-primary">Submit</button>
+<button type="reset" class="btn btn-danger">reset</button>
+</form>
